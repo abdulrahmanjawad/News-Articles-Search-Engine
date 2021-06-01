@@ -41,3 +41,7 @@ uvicorn main:app --reload
    2. Back End using Python FastAPI
    3. Indexing and Searching using Apache Solr and built-in Zookeeper
    4. Data handling in JSON
+<br>
+## Team Members:
+   1. [Ahmed Rehman Chauhan](https://github.com/ahmedrehman16)
+   2. [Saad Khan]
