@@ -43,5 +43,5 @@ uvicorn main:app --reload
    4. Data handling in JSON
 <br>
 ## Team Members:
-   1. [Ahmed Rehman Chauhan](https://github.com/ahmedrehman16)
-   2. [Saad Khan]
+1. [Ahmed Rehman Chauhan](https://github.com/ahmedrehman16)
+2. [Saad Khan]
