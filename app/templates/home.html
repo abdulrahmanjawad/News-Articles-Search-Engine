@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>News Articles</title>
+	<link rel = "shortcut icon" href = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAYFBMVEUNvpj///8AupEAvJUAuY/S8OiI2cSf3876/v3a8+zd9O73/fvg9fCR28iv5ddq0bdz0rlDx6fJ7ePt+fbA6t8dwp5YzK+25tmn4dJ+1b4tw6FhzrLn+PWj4dFQyqy559vO6AZQAAADeUlEQVR4nO2dWXJCMRADX+xHIIEkbNm3+98yF5D+nHJNz+gEVmEPuK0SyzJH/XgjdeqTFjRcfSsN7jAGl3aWDg9t9sKGqV2kwyvH4aKP4QNml/Yf7fCJ4/BdO3yevbBh6o/S4J5zDNtGOrwHOdSj9JXjkD9KX7TDF47DW/wofcWP0jvpcMNx2PfS4SPmGC4f+hi+Yxz2T+0QdP190A4xBpd2lQYvnEGzHqTDM8ih3qRvnF1qRukR4zAtSeSP0i/OoDHXX9AoXXbS4RazS/tJH0M+SfyYvbBh6t/S4B7zETqSCHqUWfUo/eU4TEsSPzkOs5LE3Tp7YcNkSOIdZ9DwSeKzPoa3GIeOJP5wHBqSyBml7VcaJJHEe+kQdP1tepPySSLoUeZJO+STRNAx5JPEL/oo7XqTgkgi/1HGkMTT7IUNkyGJFe8OpIp3h1eCeDefJGaNd4NIohmlIJJoRimfJFa8O44MSSSNUn68WwdpiiTGUYJ4tyGJs9c1TnySyI93m0eZb8wxrHh3fBmSSIp3F0mML71JQSQxbbybc/3tb9IgP94NKopYdSaRXxQBIokV7w4vVxSBj3eTSKIepSCSWPHu8EoQ78YXRTQ8STSZRNAoNddfEElMG+8G/WbTJBH0KGPi3SCSyI93pyWJoKIITRJJ8W5DEkFfFviiCHP9BT3KmHg3nyTOXtc4JYh344siGr4ogv8oUyQxvKooIr4q3h1eeUkixmCCeDefJJr27iKJcWTj3bMXNkyGJJJGqYl340kiaJQWSQyvBJlEQxIxH2GCoggX7+Z8hmkziaCiCEMSZ69rnBo/3q1JYsW7A8mM0iKJcZRglFa8O7xMJpFTFOFIIijebUgiKJNoiiI4x7BIIkB6k/IfZUAkkR/v1iSRH+8GkUSTSeTHu0EkMW1RxOx1jZMZpaTrL74ogh/vTksS+fHu2esapyKJ8WXi3RyS6IoiQKOUTxL58e4qiggv097NJ4mgeDefJJp4N+gY6lEKqpytoojwqnh3fCWId+OLIlZ9/a14dxxVvDu+XFEEKEijSSLoUcbEu0EkkV8Uwf/zKk0Sd7PXNU5FEuMrbeVsxbvjyJFE0G82/P8AdjxJNKMURBL58W5DEkGjlE8Ss8a7iyTGkYt380kixqAriiBlEvFFEQ1fOVvx7vBK8ChT8e740qO0SOK/6Q9gCzK92q7LdwAAAABJRU5ErkJggg==" type = "image/x-icon">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  	<style type="text/css">
+  		body {
+		 background: linear-gradient(to bottom, #f1f1f1 0%, #ffffff 100%);
+		 background-repeat: no-repeat;
+		}
+  	</style>
+</head>
+<body>
+
+	<h1 style="padding-left: 463px; padding-top: 10px">  News Article Search Engine </h1>
+	<div class="container " style="padding-left: 230px; padding-top: 35px; padding-bottom: 35px">
+		<form action="/news" method="post" class="form-inline" enctype="multipart/form-data">
+			<input style="width: 150px" list="query_type" name="query_type" class="form-control" placeholder="Query Type">
+			<datalist id="query_type">
+				<option value="category">
+				<option value="headline">
+				<option value="authors">
+				<option value="short description">
+				<option value="date">
+			</datalist>
+			<input style="width: 300px" type="text" id="search_word" name="search_word" class="form-control" placeholder="Search Word">
+			<input style="width: 110px" type="text" id="result_rows" name="result_rows" class="form-control" placeholder="Result Rows">
+			<input type="submit" class="btn btn-default" value="Search">
+		</form>
+	</div>
+
+	<div class="container" style="padding-top: 20px; padding-bottom: 30px; padding-left: 110px">
+	{% if query_results %}
+		<p> Querying for <b> {{ query['query_type'] }}:{{ query['search_word'] }} </b> </p>
+		<p> Showing results {{ query['result_rows'] }} out of {{ num_results }} ({{ Qtime }} miliseconds) </p>
+		{% for result in query_results %}
+			<a href="{{ result.link[0] }}" target="_blank" rel="noopener noreferrer"><h3 style="color: #555"> <b> {{ result.headline[0] }} </b> </h3></a>
+			<p> 
+				{% if result.short_description %}
+					{{ result.short_description[0] }} ...
+				{% else %}
+					Description not available
+				{% endif %} 
+			</p>
+			<h5> 
+				{% if result.authors %}
+					By {{ result.authors[0] }} 
+				{% else %}
+					Author not available
+				{% endif %}
+			</h5>
+			<h5> 
+				{% if result.category %}
+					{{ result.category[0] }}
+				{% endif %}
+
+				{% if result.date %}
+				 	{{result.date[0][0]}}{{result.date[0][1]}}{{result.date[0][2]}}{{result.date[0][3]}}{{result.date[0][4]}}{{result.date[0][5]}}{{result.date[0][6]}}{{result.date[0][7]}}{{result.date[0][8]}}{{result.date[0][9]}} 
+				{% else %}
+					No date
+				{% endif %} 
+			</h5>
+		{% endfor %}
+	{% endif %}
+	</div>
+	
+</body>
+</html>
