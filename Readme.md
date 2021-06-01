@@ -3,7 +3,7 @@ A simple search engine to search for news articles using [Apache Solr](https://s
 
 ## Data
 The News Category Dataset was downloaded from [Kaggle](https://www.kaggle.com/rmisra/news-category-dataset).
-It contains around 200k news headlines from the year 2012 to 2018 obtained from [HuffPost](https://www.huffpost.com/).<br>
+It contains around 200k news headlines from the year 2012 to 2018 obtained from [HuffPost](https://www.huffpost.com/).
 The file is in JSON format and has attributes: category, headline, authors, link, short description and date.
 
 ## To configure and run the app, do the following steps:
