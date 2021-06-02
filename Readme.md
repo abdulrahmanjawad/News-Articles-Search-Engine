@@ -37,7 +37,7 @@ uvicorn main:app --reload
 #### 4. Go to http://localhost:8000/news and start searching for articles
 
 ## Tools used:
-   1. Front End using HTML, CSS, Simple Bootstrap and AngularJS
+   1. Front End using HTML, CSS, Simple Bootstrap and Jinja Template Engine
    2. Back End using Python FastAPI
    3. Indexing and Searching using Apache Solr and built-in Zookeeper
    4. Data handling in JSON
