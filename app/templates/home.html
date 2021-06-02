@@ -20,7 +20,7 @@
 	<h1 style="padding-left: 463px; padding-top: 10px">  News Article Search Engine </h1>
 	<div class="container " style="padding-left: 230px; padding-top: 35px; padding-bottom: 35px">
 		<form action="/news" method="post" class="form-inline" enctype="multipart/form-data">
-			<input style="width: 150px" list="query_type" name="query_type" class="form-control" placeholder="Query Type">
+			<input style="width: 150px" list="query_type" name="query_type" class="form-control" placeholder="Query Type" required>
 			<datalist id="query_type">
 				<option value="category">
 				<option value="headline">
@@ -28,8 +28,8 @@
 				<option value="short description">
 				<option value="date">
 			</datalist>
-			<input style="width: 300px" type="text" id="search_word" name="search_word" class="form-control" placeholder="Search Word">
-			<input style="width: 110px" type="text" id="result_rows" name="result_rows" class="form-control" placeholder="Result Rows">
+			<input style="width: 300px" type="text" id="search_word" name="search_word" class="form-control" placeholder="Search Word" required>
+			<input style="width: 110px" type="text" id="result_rows" name="result_rows" class="form-control" placeholder="Result Rows" required>
 			<input type="submit" class="btn btn-default" value="Search">
 		</form>
 	</div>
