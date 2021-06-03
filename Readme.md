@@ -1,5 +1,5 @@
 # News Articles Search Engine
-A simple search engine to search for news articles using [Apache Solr](https://solr.apache.org/) and Web Page with [FastAPI](https://fastapi.tiangolo.com/) at the backend.
+A simple search engine to search for news articles using [Apache Solr](https://solr.apache.org/) and web page with [FastAPI](https://fastapi.tiangolo.com/) at the backend.
 
 ## Data
 The News Category Dataset was downloaded from [Kaggle](https://www.kaggle.com/rmisra/news-category-dataset).
